@@ -10,7 +10,6 @@ module.exports = {
     },
     devServer: {
         contentBase: "./dist",
-        // open: true
     },
 
     module: {
@@ -21,6 +20,18 @@ module.exports = {
                     "style-loader",
                     "css-loader",
                     "sass-loader"
+                ]
+            },
+            {
+                test: /\.(git|png|jpg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 50000,
+                            name: './img/[name].[ext]'
+                        }
+                    }
                 ]
             }
         ]
